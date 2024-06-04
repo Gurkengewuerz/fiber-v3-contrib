@@ -23,7 +23,7 @@ func New(config ...Config) fiber.Handler {
 	extractors := cfg.getExtractors()
 
 	// Return middleware handler
-	return func(c *fiber.Ctx) error {
+	return func(c fiber.Ctx) error {
 		// Filter request to skip middleware
 		if cfg.Filter != nil && cfg.Filter(c) {
 			return c.Next()
